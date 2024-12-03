@@ -1,10 +1,21 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
+<p>
+  <strong>Title:</strong>
+  <%= @todo_list.title %>
+</p>
 
-<%= render @todo_list %>
+<p>
+  <strong>Description:</strong>
+  <%= @todo_list.description %>
+</p>
 
-<div>
-  <%= link_to "Edit this todo list", edit_todo_list_path(@todo_list) %> |
-  <%= link_to "Back to todo lists", todo_lists_path %>
+<div id="todo_items_wrapper">
+  <%= render @todo_list.todo_items %>
+  <div id="form">
+    <%= render "todo_items/form" %>
+    </div>
+  </div>
 
-  <%= button_to "Destroy this todo list", @todo_list, method: :delete %>
-</div>
+  <%= link_to 'Edit' , edit_todo_list_path(@todo_list) %> |
+  <%= link_to 'Back' , todo_lists_path %>
+
